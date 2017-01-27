@@ -19,12 +19,14 @@ public class News {
     private String mWebTitle;
     private String mPublicationDate;
     private String mWebUrl;
+    private String mSectionName;
 
     public News(JSONObject newsObject) {
         try {
             this.mWebTitle = newsObject.getString("webTitle");
             this.mPublicationDate = newsObject.getString("webPublicationDate");
             this.mWebUrl = newsObject.getString("webUrl");
+            this.mSectionName = newsObject.getString("sectionName");
         } catch (JSONException e) {
             Log.e(TAG, "Error creating a News object from JSONObject", e);
         }
@@ -33,6 +35,7 @@ public class News {
     public String getWebTitle() { return mWebTitle; }
     public String getPublicationDate() { return mPublicationDate; }
     public String getWebUrl() { return mWebUrl; }
+    public String getSectionName() { return mSectionName; }
 
     public static List<News> getNewsListFromJson(JSONArray jsonNewsObjects) {
         if( jsonNewsObjects == null || jsonNewsObjects.length() == 0) return null;

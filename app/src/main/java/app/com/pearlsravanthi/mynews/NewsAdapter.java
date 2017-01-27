@@ -21,6 +21,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
     private static class ViewHolder {
         TextView title;
         TextView publishedDate;
+        TextView sectionName;
     }
 
     public NewsAdapter(Context context, List<News> newsList) {
@@ -41,6 +42,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
             viewHolder.title = (TextView) convertView.findViewById(R.id.news_title);
             viewHolder.publishedDate = (TextView) convertView.findViewById(R.id.published_date);
+            viewHolder.sectionName = (TextView) convertView.findViewById(R.id.section_name);
 
             convertView.setTag(viewHolder);
         } else {
@@ -49,6 +51,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         viewHolder.title.setText(news.getWebTitle());
         viewHolder.publishedDate.setText(news.getPublicationDate());
+        viewHolder.sectionName.setText("Section : "+news.getSectionName().toUpperCase());
 
         return convertView;
     }
